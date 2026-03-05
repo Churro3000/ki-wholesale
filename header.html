@@ -16,23 +16,26 @@
       </button>
     </form>
 
-    <!-- Post My RFQ -->
-    <button class="post-rfq-btn" id="rfq-btn">
-      <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.5" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
-      </svg>
-      Post My RFQ
-    </button>
-
-    <!-- Inquiry Basket -->
-    <div class="inquiry-basket" id="basket-btn">
-      <div class="basket-icon">
-        <svg width="24" height="24" fill="none" stroke="#FF6700" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+    <!-- Right group: Post My RFQ + Inquiry Basket – pushed to far right -->
+    <div class="right-group">
+      <!-- Post My RFQ -->
+      <button class="post-rfq-btn" id="rfq-btn">
+        <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
         </svg>
-        <span class="badge" id="basket-count">0</span>
+        Post My RFQ
+      </button>
+
+      <!-- Inquiry Basket -->
+      <div class="inquiry-basket" id="basket-btn">
+        <div class="basket-icon">
+          <svg width="24" height="24" fill="none" stroke="#FF6700" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+          </svg>
+          <span class="badge" id="basket-count">0</span>
+        </div>
+        <span class="basket-text">Inquiry Basket</span>
       </div>
-      <span class="basket-text">Inquiry Basket</span>
     </div>
   </div>
 </header>
@@ -57,6 +60,7 @@
     align-items: center;
     height: 80px;
     gap: 20px;
+    justify-content: space-between;     /* CHANGED: allows pushing right-group to the edge */
   }
   .logo {
     font-size: 28px;
@@ -90,6 +94,16 @@
     justify-content: center;
     cursor: pointer;
   }
+
+  /* ──────────────────────────────────────────────── */
+  /* NEW: Group for right-side buttons – pushes them to far right */
+  .right-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;                          /* space between RFQ and Basket */
+    margin-left: auto;                  /* CHANGED: this is what pushes everything to the right edge */
+  }
+  /* ──────────────────────────────────────────────── */
 
   .post-rfq-btn {
     background: var(--orange);
@@ -144,14 +158,24 @@
     color: #333;
   }
 
-  /* Mobile */
+  /* Mobile adjustments */
   @media (max-width: 768px) {
     .container {
       flex-wrap: wrap;
       height: auto;
       padding: 12px 15px;
+      justify-content: flex-start;      /* CHANGED: on mobile, don't force right alignment */
     }
-    .search-box { max-width: 100%; order: 3; }
+    .search-box { 
+      max-width: 100%; 
+      order: 3; 
+      margin: 12px 0;
+    }
+    .right-group {
+      margin-left: 0;                   /* CHANGED: reset auto margin on small screens */
+      order: 4;
+      gap: 12px;
+    }
   }
 </style>
 
