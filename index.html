@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI Wholesale - Premium Products Direct from Suppliers</title>
+  <style>
+    body { margin:0; font-family: Arial, sans-serif; }
+    #header-placeholder { width: 100%; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER WILL LOAD HERE -->
+  <div id="header-placeholder"></div>
+
+  <!-- Your main content starts here -->
+  <main style="padding:40px; text-align:center;">
+    <h1>Welcome to KI Wholesale</h1>
+    <p>Professional B2B site like MadeInChina — built 100% on GitHub Pages.</p>
+    <p>Header is loaded from separate file. Everything works!</p>
+  </main>
+
+  <script>
+    // Load header.html (HTML + CSS + JS all from one file)
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, 'text/html');
+
+        // Add styles to head
+        const styles = doc.querySelector('style');
+        if (styles) document.head.appendChild(styles);
+
+        // Insert header HTML
+        document.getElementById('header-placeholder').innerHTML = doc.body.innerHTML;
+
+        // Run the script from header.html
+        const scripts = doc.querySelectorAll('script');
+        scripts.forEach(oldScript => {
+          const newScript = document.createElement('script');
+          newScript.textContent = oldScript.textContent;
+          document.body.appendChild(newScript);
+        });
+      })
+      .catch(err => console.error('Header load error:', err));
+  </script>
+</body>
+</html>
