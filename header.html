@@ -60,7 +60,7 @@
     align-items: center;
     height: 80px;
     gap: 20px;
-    justify-content: space-between;     /* CHANGED: allows pushing right-group to the edge */
+    justify-content: space-between;     /* allows pushing right-group to the edge */
   }
   .logo {
     font-size: 28px;
@@ -77,7 +77,8 @@
     border-radius: 50px;
     overflow: hidden;
     background: #fff;
-    margin-left: 60px;          /* ← change 32px up/down to taste (20–60px range works well) */
+    margin-left: 100px;                 /* INCREASED: stronger push to the right (adjust 80–140px to taste) */
+    margin-right: 40px;                 /* ADDED: breathing room before right-group buttons */
   }
   .search-box input {
     flex: 1;
@@ -97,12 +98,12 @@
   }
 
   /* ──────────────────────────────────────────────── */
-  /* NEW: Group for right-side buttons – pushes them to far right */
+  /* Group for right-side buttons – pushes them to far right */
   .right-group {
     display: flex;
     align-items: center;
     gap: 16px;                          /* space between RFQ and Basket */
-    margin-left: auto;                  /* CHANGED: this is what pushes everything to the right edge */
+    margin-left: auto;                  /* pushes everything to the right edge */
   }
   /* ──────────────────────────────────────────────── */
 
@@ -165,15 +166,15 @@
       flex-wrap: wrap;
       height: auto;
       padding: 12px 15px;
-      justify-content: flex-start;      /* CHANGED: on mobile, don't force right alignment */
+      justify-content: flex-start;      /* on mobile, don't force right alignment */
     }
-    .search-box { 
-      max-width: 100%; 
-      order: 3; 
-      margin: 12px 0;
+    .search-box {
+      max-width: 100%;
+      order: 3;
+      margin: 12px 0;                   /* reset margins on mobile for clean stacking */
     }
     .right-group {
-      margin-left: 0;                   /* CHANGED: reset auto margin on small screens */
+      margin-left: 0;                   /* reset auto margin on small screens */
       order: 4;
       gap: 12px;
     }
