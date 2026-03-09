@@ -74,29 +74,23 @@
       })
       .catch(err => console.error('Header load error:', err));
 
-// ADD THIS BELOW THE HEADER FETCH (or combine into one fetch if you prefer - catgeories.html)
+// Fetch categories – add this
+  <script>
     fetch('categories.html')
       .then(response => response.text())
       .then(data => {
         const parser = new DOMParser();
         const doc = parser.parseFromString(data, 'text/html');
-
-        // Add styles
-        const styles = doc.querySelector('style');
-        if (styles) document.head.appendChild(styles);
-
-        // Insert sidebar HTML
+        if (doc.querySelector('style')) document.head.appendChild(doc.querySelector('style'));
         document.getElementById('categories-placeholder').innerHTML = doc.body.innerHTML;
-
-        // Run any script from categories.html
         const scripts = doc.querySelectorAll('script');
-        scripts.forEach(oldScript => {
-          const newScript = document.createElement('script');
-          newScript.textContent = oldScript.textContent;
-          document.body.appendChild(newScript);
+        scripts.forEach(s => {
+          const ns = document.createElement('script');
+          ns.textContent = s.textContent;
+          document.body.appendChild(ns);
         });
-      })
-      .catch(err => console.error('Categories load error:', err));
+      });
+  </script>
     
   </script>
 </body>
