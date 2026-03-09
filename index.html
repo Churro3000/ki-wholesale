@@ -25,39 +25,91 @@
         <!-- Left sidebar -->
         <div id="categories-placeholder"></div>
         
-        <!---------------------------------- Center content --------------------------------------->
-<div class="flex-1">
-    <!-- Promo banner - now a full-width slideshow -->
-    <div class="hero-gradient rounded-3xl p-8 mb-8 overflow-hidden relative h-[320px] lg:h-[400px]">
-        
-        <!-- Simple CSS slideshow container -->
-        <div class="slideshow-container absolute inset-0">
-            
-            <!-- Slide 1 -->
-            <div class="slide fade">
-                <img src="https://picsum.photos/id/1015/1200/600" 
-                     alt="Slide 1" 
-                     class="w-full h-full object-cover opacity-90">
-            </div>
-            
-            <!-- Slide 2 -->
-            <div class="slide fade">
-                <img src="https://picsum.photos/id/1020/1200/600" 
-                     alt="Slide 2" 
-                     class="w-full h-full object-cover opacity-90">
-            </div>
-            
-            <!-- Slide 3 -->
-            <div class="slide fade">
-                <img src="https://picsum.photos/id/1035/1200/600" 
-                     alt="Slide 3" 
-                     class="w-full h-full object-cover opacity-90">
-            </div>
-            
-            <!-- Add more slides here as needed -->
-            <!-- <div class="slide fade"><img src="your-image-url.jpg" class="w-full h-full object-cover opacity-90"></div> -->
+        <!-- Promo banner - replaced with image slideshow -->
+<div class="hero-gradient rounded-3xl p-8 mb-8 overflow-hidden relative h-[320px] lg:h-[380px]">
+    
+    <!-- Slideshow container -->
+    <div id="slideshow" class="absolute inset-0">
+        <!-- Slide 1 -->
+        <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                 alt="Slide 1 - Wholesale products"
+                 class="w-full h-full object-cover">
         </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                 alt="Slide 2 - Bulk goods"
+                 class="w-full h-full object-cover">
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <img src="https://images.unsplash.com/photo-1581235720704-06d1018152dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                 alt="Slide 3 - Africa trade"
+                 class="w-full h-full object-cover">
+        </div>
+        
+        <!-- Slide 4 (you can add more) -->
+        <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <img src="https://images.unsplash.com/photo-1556740714-a8395b3a74dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                 alt="Slide 4 - Global sourcing"
+                 class="w-full h-full object-cover">
+        </div>
+    </div>
 
+    <!-- Optional subtle overlay gradient (keeps branding feel) -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent pointer-events-none"></div>
+
+    <!-- CSS for slideshow (scoped with container classes) -->
+    <style>
+        #slideshow .slide {
+            opacity: 0;
+        }
+        #slideshow .slide.active {
+            opacity: 1;
+        }
+        #slideshow img {
+            object-position: center;
+        }
+    </style>
+
+    <!-- JavaScript for slideshow (self-contained, no global pollution) -->
+    <script>
+        (function() {
+            const container = document.getElementById('slideshow');
+            if (!container) return;
+
+            const slides = container.querySelectorAll('.slide');
+            if (slides.length === 0) return;
+
+            let current = 0;
+            const total = slides.length;
+
+            function showSlide(index) {
+                slides.forEach((s, i) => {
+                    s.classList.toggle('active', i === index);
+                });
+            }
+
+            function nextSlide() {
+                current = (current + 1) % total;
+                showSlide(current);
+            }
+
+            // Show first slide immediately
+            showSlide(0);
+
+            // Auto advance every 5 seconds
+            const interval = setInterval(nextSlide, 5000);
+
+            // Clean up when element is removed (optional safety)
+            container.addEventListener('remove', () => clearInterval(interval), { once: true });
+        })();
+    </script>
+</div>
+        
             <!-- Product cards -->
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all">
