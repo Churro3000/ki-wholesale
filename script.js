@@ -40,4 +40,5 @@ document.addEventListener('DOMContentLoaded', () => {
     loadFragment('header.html',        'header-placeholder');
     loadFragment('categories.html',    'categories-placeholder');
     loadFragment('you-may-like.html',  'you-may-like-placeholder');
+    loadFragment('hero-slideshow.html','hero-placeholder');   // ← added this line for the new slideshow section
 });
