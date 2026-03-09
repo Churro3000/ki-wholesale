@@ -1,0 +1,115 @@
+<!-- hero-slideshow.html -->
+<!-- Large central slideshow / promo connector section -->
+<!-- Matches Made-in-China style: big rotating images + overlay text -->
+
+<div class="relative mb-8 rounded-3xl overflow-hidden shadow-lg" style="height: 420px; min-height: 380px;">
+
+    <!-- Unique ID to prevent any ID/name clashes -->
+    <div id="ki-hero-slides-2026" class="absolute inset-0">
+
+        <!-- Slide 1 -->
+        <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <img src="https://images.unsplash.com/photo-1586528116022-7ea5ddfc0d6a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+                 alt="Bulk electronics sourcing"
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/35 to-transparent flex items-center justify-center">
+                <div class="text-center text-white px-6 max-w-4xl">
+                    <p class="uppercase tracking-[4px] text-orange-200 text-sm md:text-base font-medium">Africa Star Wholesalers</p>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mt-3 drop-shadow-xl leading-tight">
+                        Keep sourcing <span class="text-orange-400">Products</span>
+                    </h2>
+                    <p class="mt-5 md:mt-6 text-lg md:text-xl lg:text-2xl opacity-95">
+                        Premium Samples • Low MOQ • Ready Stock
+                    </p>
+                    <!-- Optional subtle button - comment out if you don't want it -->
+                    <!--
+                    <button class="mt-8 bg-white text-orange-600 font-semibold px-10 py-4 rounded-2xl hover:bg-orange-50 transition-colors shadow-md">
+                        Browse Now
+                    </button>
+                    -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+                 alt="Industrial machinery bulk"
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/35 to-transparent flex items-center justify-center">
+                <div class="text-center text-white px-6 max-w-4xl">
+                    <p class="uppercase tracking-[4px] text-orange-200 text-sm md:text-base font-medium">Africa Star Wholesalers</p>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mt-3 drop-shadow-xl leading-tight">
+                        Keep sourcing <span class="text-orange-400">Machinery</span>
+                    </h2>
+                    <p class="mt-5 md:mt-6 text-lg md:text-xl lg:text-2xl opacity-95">
+                        Industrial Grade • Competitive Pricing • Fast Delivery
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 - add more by copying the block above -->
+        <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <img src="https://images.unsplash.com/photo-1581235720704-06d1018152dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+                 alt="Consumer electronics wholesale"
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/35 to-transparent flex items-center justify-center">
+                <div class="text-center text-white px-6 max-w-4xl">
+                    <p class="uppercase tracking-[4px] text-orange-200 text-sm md:text-base font-medium">Africa Star Wholesalers</p>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mt-3 drop-shadow-xl leading-tight">
+                        Keep sourcing <span class="text-orange-400">Electronics</span>
+                    </h2>
+                    <p class="mt-5 md:mt-6 text-lg md:text-xl lg:text-2xl opacity-95">
+                        Latest Models • Bulk Discounts • Quality Guaranteed
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scoped styles - only affect this component -->
+    <style>
+        #ki-hero-slides-2026 .hero-slide {
+            opacity: 0;
+        }
+        #ki-hero-slides-2026 .hero-slide.active {
+            opacity: 1;
+        }
+        #ki-hero-slides-2026 img {
+            object-position: center;
+        }
+    </style>
+
+    <!-- Scoped JS - fully isolated, unique names -->
+    <script>
+        (function initKiHeroSlider() {
+            const container = document.getElementById('ki-hero-slides-2026');
+            if (!container) return;
+
+            const slides = container.querySelectorAll('.hero-slide');
+            if (slides.length === 0) return;
+
+            let currentIndex = 0;
+            const slideCount = slides.length;
+
+            function showSlide(idx) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === idx);
+                });
+            }
+
+            function next() {
+                currentIndex = (currentIndex + 1) % slideCount;
+                showSlide(currentIndex);
+            }
+
+            showSlide(0);                    // Show first slide
+            const autoPlay = setInterval(next, 5500);  // Change every 5.5s
+
+            // Basic cleanup
+            container.addEventListener('remove', () => clearInterval(autoPlay), { once: true });
+        })();
+    </script>
+</div>
