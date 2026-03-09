@@ -1,0 +1,40 @@
+/* ============================================= */
+/* styles.css - Custom styles + Tailwind support */
+/* ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', system-ui, sans-serif;
+    @apply bg-gray-50 text-gray-800;
+}
+
+/* Orange theme colors */
+.primary-orange       { color: #f97316; }
+.bg-primary-orange    { background-color: #f97316; }
+.text-orange-600      { color: #ea580c; }       /* fallback / override if needed */
+
+/* Hero banner gradient */
+.hero-gradient {
+    background: linear-gradient(135deg, #f97316, #fb923c);
+}
+
+/* Make main content area much wider on large screens (like Made-in-China style) */
+@media (min-width: 1280px) {
+    .wide-container {
+        max-width: 1800px;      /* or try 100% / none → full bleed if you prefer even wider */
+        /* max-width: none;  */   /* uncomment for true full-width like many Chinese B2B sites */
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1.5rem;   /* 24px */
+        padding-right: 1.5rem;
+    }
+}
+
+/* Optional: tighter padding on very wide screens */
+@media (min-width: 1600px) {
+    .wide-container {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
