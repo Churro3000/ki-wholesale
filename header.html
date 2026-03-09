@@ -1,0 +1,74 @@
+<!-- header.html - Top navigation + secondary bar -->
+<header class="bg-white border-b shadow-sm sticky top-0 z-50">
+    <div class="wide-container mx-auto px-6">   <!-- changed from max-w-7xl → wider -->
+        <div class="flex items-center justify-between py-4">
+            
+            <!-- Logo + Tagline -->
+            <div class="flex items-center gap-4">
+                <div class="w-11 h-11 bg-[#f97316] rounded-2xl flex items-center justify-center text-white text-4xl font-bold shadow-inner">K</div>
+                <div>
+                    <h1 class="text-3xl font-bold tracking-tighter primary-orange">Ki Wholesalers</h1>
+                    <p class="text-xs font-semibold tracking-[2px] text-orange-600 -mt-1">AFRICA WHOLESALERS</p>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="flex-1 max-w-3xl mx-8">   <!-- increased max-w from xl → 3xl for better spread -->
+                <div class="relative flex">
+                    <button onclick="alert('Products dropdown...')" 
+                            class="bg-gray-100 hover:bg-gray-200 px-6 rounded-l-2xl text-sm font-medium flex items-center gap-2 border-r border-gray-300">
+                        <span>Products</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    
+                    <input type="text" id="search" 
+                           class="flex-1 border border-gray-300 focus:border-orange-500 py-3.5 px-5 text-base focus:outline-none"
+                           placeholder="Enter a keyword to search products">
+                    
+                    <button onclick="performSearch()" 
+                            class="bg-[#f97316] hover:bg-orange-600 text-white px-8 rounded-r-2xl font-medium transition-colors">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right icons -->
+            <div class="flex items-center gap-8 text-sm">
+                <a href="#" class="flex flex-col items-center hover:text-orange-600 transition-colors">
+                    <i class="fas fa-file-alt text-2xl"></i>
+                    <span class="text-xs mt-1 font-medium">Post RFQ</span>
+                </a>
+                <a href="#" class="flex flex-col items-center hover:text-orange-600 transition-colors">
+                    <i class="fas fa-envelope text-2xl"></i>
+                    <span class="text-xs mt-1 font-medium">Messages</span>
+                </a>
+                <a href="#" class="flex flex-col items-center hover:text-orange-600 transition-colors relative">
+                    <i class="fas fa-shopping-basket text-2xl"></i>
+                    <span class="text-xs mt-1 font-medium">Inquiry Basket</span>
+                    <span class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">3</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 hover:text-orange-600">
+                    <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-orange-600"></i>
+                    </div>
+                    <div class="text-xs leading-tight">
+                        <div class="font-semibold">Sign in</div>
+                        <div class="text-gray-500">/ Join</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Secondary nav -->
+    <nav class="bg-gray-900 text-white py-3 text-sm">
+        <div class="wide-container mx-auto px-6 flex items-center gap-10 font-medium">
+            <a href="#" class="flex items-center gap-2 hover:text-orange-400">
+                <i class="fas fa-bars"></i> All Categories
+            </a>
+            <a href="#" class="hover:text-orange-400">Top-ranking Products</a>
+            <a href="#" class="hover:text-orange-400">Video Channel</a>
+            <a href="#" class="hover:text-orange-400">Secured Trading Service</a>
+        </div>
+    </nav>
+</header>
