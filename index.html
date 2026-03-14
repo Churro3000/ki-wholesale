@@ -71,7 +71,15 @@
     <div id="bottom-categories-placeholder"></div>
 
     <!-- Top products section – placed below Browse Categories -->
-<div id="top-products-placeholder"></div>
+<!-- Add this line in your index.html where you want the section to appear -->
+<div id="top-products"></div>
+<script>
+  fetch('top-products.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('top-products').innerHTML = data;
+    });
+</script>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-8 text-center text-sm mt-12">
