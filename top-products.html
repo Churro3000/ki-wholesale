@@ -1,111 +1,120 @@
-<!-- top-products.html -->
-<!-- Section: Our Top Products – green background, centered horizontal product cards -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Top Products</title>
+  <style>
+    /* Reset */
+    body, h2, div {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<div class="top-products-section bg-gradient-to-br from-green-600 to-green-800 text-white py-16 relative overflow-hidden">
-    
-    <!-- Subtle animated background pattern (moving dots / particles) -->
-    <div class="absolute inset-0 opacity-20 pointer-events-none">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,255,255,0.15)_0%,transparent_50%),radial-gradient(circle_at_80%_70%,rgba(255,255,255,0.12)_0%,transparent_50%)] animate-pulse-slow"></div>
-    </div>
-
-    <!-- Content wrapper – centered and constrained -->
-    <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
-        
-        <!-- Section title -->
-        <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 tracking-tight drop-shadow-md">
-            Our Top Products
-        </h2>
-
-        <!-- Horizontal product cards – centered, responsive -->
-        <div class="flex flex-wrap justify-center gap-8 md:gap-10">
-
-            <!-- Product 1 -->
-            <div class="product-card w-full sm:w-80 md:w-72 lg:w-80 bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div class="h-64 bg-gray-100 flex items-center justify-center">
-                    <!-- Replace with your real image path -->
-                    <img src="/images/top-product-1.jpg" 
-                         alt="Top Product 1" 
-                         class="w-full h-full object-cover">
-                </div>
-                <div class="p-6 text-center">
-                    <h3 class="text-xl font-semibold text-gray-900">
-                        Premium Wireless Earbuds
-                    </h3>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card w-full sm:w-80 md:w-72 lg:w-80 bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div class="h-64 bg-gray-100 flex items-center justify-center">
-                    <img src="/images/top-product-2.jpg" 
-                         alt="Top Product 2" 
-                         class="w-full h-full object-cover">
-                </div>
-                <div class="p-6 text-center">
-                    <h3 class="text-xl font-semibold text-gray-900">
-                        Smart Home Security Camera
-                    </h3>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card w-full sm:w-80 md:w-72 lg:w-80 bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div class="h-64 bg-gray-100 flex items-center justify-center">
-                    <img src="/images/top-product-3.jpg" 
-                         alt="Top Product 3" 
-                         class="w-full h-full object-cover">
-                </div>
-                <div class="p-6 text-center">
-                    <h3 class="text-xl font-semibold text-gray-900">
-                        Portable Power Station 500W
-                    </h3>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card w-full sm:w-80 md:w-72 lg:w-80 bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div class="h-64 bg-gray-100 flex items-center justify-center">
-                    <img src="/images/top-product-4.jpg" 
-                         alt="Top Product 4" 
-                         class="w-full h-full object-cover">
-                </div>
-                <div class="p-6 text-center">
-                    <h3 class="text-xl font-semibold text-gray-900">
-                        Professional LED Work Light
-                    </h3>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!-- CSS – scoped inside this file -->
-
-<style>
+    /* Section styling */
     .top-products-section {
-        position: relative;
+      position: relative;
+      background: linear-gradient(135deg, #2e7d32, #388e3c);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      overflow: hidden;
     }
 
-    /* Gentle slow pulse for background pattern */
-    @keyframes pulse-slow {
-        0%, 100% { opacity: 0.2; }
-        50% { opacity: 0.35; }
+    .top-products-section h2 {
+      font-size: 2em;
+      margin-bottom: 40px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
     }
 
-    .animate-pulse-slow {
-        animation: pulse-slow 12s ease-in-out infinite;
+    /* Animated background effect */
+    .top-products-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 20%, transparent 60%);
+      animation: moveBackground 12s linear infinite;
+      z-index: 0;
     }
 
-    .product-card {
-        max-width: 320px; /* prevents cards from becoming too wide on large screens */
+    @keyframes moveBackground {
+      0% { transform: translate(0,0); }
+      50% { transform: translate(60px,60px); }
+      100% { transform: translate(0,0); }
     }
 
-    .product-card img {
-        transition: transform 0.4s ease;
+    /* Product container */
+    .products-container {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
     }
 
-    .product-card:hover img {
-        transform: scale(1.08);
+    /* Product box styling */
+    .product-box {
+      background: white;
+      color: #2e7d32;
+      padding: 20px;
+      width: 220px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+      text-align: center;
     }
-</style>
+
+    .product-box:hover {
+      transform: translateY(-8px);
+    }
+
+    .product-box img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .product-title {
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Products Section -->
+  <section class="top-products-section">
+    <h2>Our Top Products</h2>
+    <div class="products-container">
+      <div class="product-box">
+        <img src="images/product1.jpg" alt="Product One">
+        <div class="product-title">Product One</div>
+      </div>
+      <div class="product-box">
+        <img src="images/product2.jpg" alt="Product Two">
+        <div class="product-title">Product Two</div>
+      </div>
+      <div class="product-box">
+        <img src="images/product3.jpg" alt="Product Three">
+        <div class="product-title">Product Three</div>
+      </div>
+      <div class="product-box">
+        <img src="images/product4.jpg" alt="Product Four">
+        <div class="product-title">Product Four</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Optional JS for future interactivity -->
+  <script>
+    // Currently unused, but you can add product carousel or dynamic loading here
+  </script>
+</body>
+</html>
