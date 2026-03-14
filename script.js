@@ -42,4 +42,5 @@ document.addEventListener('DOMContentLoaded', () => {
     loadFragment('you-may-like.html',  'you-may-like-placeholder');
     loadFragment('hero-slideshow.html','hero-placeholder');   // ← added this line for the new slideshow section
     loadFragment('bottom-categories.html', 'bottom-categories-placeholder'); // 1 line bottom category
+    loadFragment('top-products.html', 'top-products-placeholder'); // the Our Top products - 1 line code
 });
