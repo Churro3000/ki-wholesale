@@ -43,4 +43,5 @@ document.addEventListener('DOMContentLoaded', () => {
     loadFragment('hero-slideshow.html','hero-placeholder');   // ← added this line for the new slideshow section
     loadFragment('bottom-categories.html', 'bottom-categories-placeholder'); // 1 line bottom category
     loadFragment('top-products.html', 'top-products-placeholder'); // the Our Top products - 1 line code
+    loadFragment('gaming.html', 'gaming-placeholder'); // ← this line for the Gaming section
 });
