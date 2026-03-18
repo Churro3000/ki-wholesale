@@ -1,179 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Gaming Section</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    body, h2, div {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-      text-align: left;
-    }
-    .gaming-section {
-      display: grid;
-      grid-template-columns: 400px 1fr;
-      background: #f4f4f7;
-      padding: 30px 20px;
-      gap: 0;
-    }
-    .gaming-image {
-      position: relative;
-    }
-    .gaming-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .gaming-text {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      color: #fff;
-      font-size: 2.5em;
-      font-weight: bold;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-    }
+ <meta charset="UTF-8">
+ <title>Gaming Section</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ <style>
+ body, h2, div {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: Arial, sans-serif;
+ text-align: left;
+ }
+ .gaming-section {
+ display: grid;
+ grid-template-columns: 400px 1fr;
+ background: #f4f4f7;
+ padding: 30px 20px;
+ gap: 0;
+ }
+ .gaming-image {
+ position: relative;
+ }
+ .gaming-image img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ display: block;
+ }
+ .gaming-text {
+ position: absolute;
+ top: 20px;
+ left: 20px;
+ color: #fff;
+ font-size: 2.5em;
+ font-weight: bold;
+ text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+ }
 
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-    }
-    .carousel-track {
-      display: flex;
-      transition: transform 0.6s ease;
-    }
-    .product-box {
-      flex: 0 0 280px;
-      margin-right: 15px;
-      background: #fff;
-      border: 1px solid #ccc;
-      text-align: center;
-      padding: 10px;
-      position: relative;
-    }
-    .product-box img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      display: block;
-      margin-bottom: 10px;
-    }
-    .product-box h3 {
-      font-size: 1.1em;
-      margin-bottom: 5px;
-      color: #222;
-    }
-    .product-box p {
-      font-size: 0.9em;
-      color: #555;
-      margin-bottom: 40px;
-    }
-    .cart-icon {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      background: orange;
-      color: #fff;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 1.2em;
-    }
-    .cart-icon:hover { background: darkorange; }
+ .carousel-container {
+ position: relative;
+ overflow: hidden;
+ }
+ .carousel-track {
+ display: flex;
+ transition: transform 0.6s ease;
+ }
+ .product-box {
+ flex: 0 0 280px;
+ margin-right: 15px;
+ background: #fff;
+ border: 1px solid #ccc;
+ text-align: center;
+ padding: 10px;
+ position: relative;
+ }
+ .product-box img {
+ width: 100%;
+ aspect-ratio: 1 / 1;
+ object-fit: cover;
+ display: block;
+ margin-bottom: 10px;
+ }
+ .product-box h3 {
+ font-size: 1.1em;
+ margin-bottom: 5px;
+ color: #222;
+ }
+ .product-box p {
+ font-size: 0.9em;
+ color: #555;
+ margin-bottom: 40px;
+ }
+ .cart-icon {
+ position: absolute;
+ bottom: 10px;
+ right: 10px;
+ background: orange;
+ color: #fff;
+ border-radius: 50%;
+ width: 40px;
+ height: 40px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ font-size: 1.2em;
+ }
+ .cart-icon:hover { background: darkorange; }
 
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2em;
-      color: #333;
-      background: rgba(255,255,255,0.9);
-      border: none;
-      cursor: pointer;
-      padding: 8px 12px;
-      z-index: 10;
-      border-radius: 50%;
-    }
-    .arrow.left  { left: 10px; }
-    .arrow.right { right: 10px; }
-    .arrow:hover { background: white; }
-  </style>
+ .arrow {
+ position: absolute;
+ top: 50%;
+ transform: translateY(-50%);
+ font-size: 2em;
+ color: #333;
+ background: rgba(255,255,255,0.9);
+ border: none;
+ cursor: pointer;
+ padding: 8px 12px;
+ z-index: 10;
+ border-radius: 50%;
+ }
+ .arrow.left { left: 10px; }
+ .arrow.right { right: 10px; }
+ .arrow:hover { background: white; }
+ </style>
 </head>
 <body>
 
-  <section class="gaming-section">
-    <!-- Left vertical image -->
-    <div class="gaming-image">
-      <img src="images/gaming_vertical.png" alt="Gaming">
-      <div class="gaming-text">Gaming</div>
+ <section class="gaming-section">
+  <!-- Left vertical image -->
+  <div class="gaming-image">
+   <img src="images/gaming_vertical.png" alt="Gaming">
+   <div class="gaming-text">Gaming</div>
+  </div>
+
+  <!-- Right carousel -->
+  <div class="carousel-container">
+   <button class="arrow left" id="leftArrow">
+    <i class="fas fa-chevron-left"></i>
+   </button>
+
+   <div class="carousel-track" id="carouselTrack">
+    <!-- Your products (kept same) -->
+    <div class="product-box">
+     <img src="images/game1.png" alt="Gaming Product 1">
+     <h3>Gaming Mouse</h3>
+     <p>High precision and ergonomic design.</p>
+     <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
     </div>
-
-    <!-- Right carousel -->
-    <div class="carousel-container">
-      <button class="arrow left" id="leftArrow">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-
-      <div class="carousel-track" id="carouselTrack">
-        <!-- Your products (kept same) -->
-        <div class="product-box">
-          <img src="images/game1.png" alt="Gaming Product 1">
-          <h3>Gaming Mouse</h3>
-          <p>High precision and ergonomic design.</p>
-          <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
-        </div>
-        <div class="product-box">
-          <img src="images/game2.png" alt="Gaming Product 2">
-          <h3>Mechanical Keyboard</h3>
-          <p>Responsive keys with RGB lighting.</p>
-          <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
-        </div>
-        <div class="product-box">
-          <img src="images/game3.png" alt="Gaming Product 3">
-          <h3>Gaming Headset</h3>
-          <p>Immersive sound and noise cancellation.</p>
-          <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
-        </div>
-        <div class="product-box">
-          <img src="images/game4.png" alt="Gaming Product 4">
-          <h3>Graphics Card</h3>
-          <p>Powerful performance for modern games.</p>
-          <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
-        </div>
-        <div class="product-box">
-          <img src="images/game5.png" alt="Gaming Product 5">
-          <h3>Gaming Chair</h3>
-          <p>Comfortable design for long sessions.</p>
-          <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
-        </div>
-        <div class="product-box">
-          <img src="images/game5.png" alt="Gaming Product 6">
-          <h3>Gaming Chair</h3>
-          <p>Comfortable design for long sessions.</p>
-          <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
-        </div>
-        <div class="product-box">
-          <img src="images/game5.png" alt="Gaming Product 7">
-          <h3>Gaming Chair</h3>
-          <p>Comfortable design for long sessions.</p>
-          <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
-        </div>
-      </div>
-
-      <button class="arrow right" id="rightArrow">
-        <i class="fas fa-chevron-right"></i>
-      </button>
+    <div class="product-box">
+     <img src="images/game2.png" alt="Gaming Product 2">
+     <h3>Mechanical Keyboard</h3>
+     <p>Responsive keys with RGB lighting.</p>
+     <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
     </div>
-  </section>
+    <div class="product-box">
+     <img src="images/game3.png" alt="Gaming Product 3">
+     <h3>Gaming Headset</h3>
+     <p>Immersive sound and noise cancellation.</p>
+     <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
+    </div>
+    <div class="product-box">
+     <img src="images/game4.png" alt="Gaming Product 4">
+     <h3>Graphics Card</h3>
+     <p>Powerful performance for modern games.</p>
+     <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
+    </div>
+    <div class="product-box">
+     <img src="images/game5.png" alt="Gaming Product 5">
+     <h3>Gaming Chair</h3>
+     <p>Comfortable design for long sessions.</p>
+     <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
+    </div>
+    <div class="product-box">
+     <img src="images/game5.png" alt="Gaming Product 6">
+     <h3>Gaming Chair</h3>
+     <p>Comfortable design for long sessions.</p>
+     <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
+    </div>
+    <div class="product-box">
+     <img src="images/game5.png" alt="Gaming Product 7">
+     <h3>Gaming Chair</h3>
+     <p>Comfortable design for long sessions.</p>
+     <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
+    </div>
+   </div>
 
-  <script src="gaming.js"></script>
+   <button class="arrow right" id="rightArrow">
+    <i class="fas fa-chevron-right"></i>
+   </button>
+  </div>
+ </section>
+
+ <script>
+   // Fixed JavaScript - slides one box at a time
+   document.addEventListener('DOMContentLoaded', () => {
+     const track = document.getElementById('carouselTrack');
+     const leftArrow = document.getElementById('leftArrow');
+     const rightArrow = document.getElementById('rightArrow');
+
+     const slideWidth = 295;  // 280px box + 15px margin
+     let currentIndex = 0;
+
+     function updateArrows() {
+       const totalProducts = track.children.length;
+       const visibleItems = 4;
+       const maxIndex = Math.max(0, totalProducts - visibleItems);
+
+       leftArrow.style.opacity = currentIndex <= 0 ? '0.4' : '1';
+       rightArrow.style.opacity = currentIndex >= maxIndex ? '0.4' : '1';
+
+       leftArrow.style.pointerEvents = currentIndex <= 0 ? 'none' : 'auto';
+       rightArrow.style.pointerEvents = currentIndex >= maxIndex ? 'none' : 'auto';
+     }
+
+     function moveCarousel(direction) {
+       const totalProducts = track.children.length;
+       const visibleItems = 4;
+       const maxIndex = Math.max(0, totalProducts - visibleItems);
+
+       currentIndex += direction;
+
+       if (currentIndex < 0) currentIndex = 0;
+       if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+       track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+       updateArrows();
+     }
+
+     leftArrow.addEventListener('click', () => moveCarousel(-1));
+     rightArrow.addEventListener('click', () => moveCarousel(1));
+
+     // Initialize arrows
+     updateArrows();
+   });
+ </script>
+
 </body>
 </html>
