@@ -123,7 +123,6 @@
    </button>
 
    <div class="carousel-track" id="carouselTrack">
-    <!-- Your products (kept same) -->
     <div class="product-box">
      <img src="images/game1.png" alt="Gaming Product 1">
      <h3>Gaming Mouse</h3>
@@ -175,50 +174,46 @@
  </section>
 
  <script>
-   "use strict";
+"use strict";
 
-   document.addEventListener('DOMContentLoaded', () => {
-     const track = document.getElementById('carouselTrack');
-     const leftArrow = document.getElementById('leftArrow');
-     const rightArrow = document.getElementById('rightArrow');
+document.addEventListener("DOMContentLoaded", function () {
+    const track = document.getElementById("carouselTrack");
+    const leftArrow = document.getElementById("leftArrow");
+    const rightArrow = document.getElementById("rightArrow");
 
-     const slideWidth = 295;   // 280px + 15px margin
-     let currentIndex = 0;
+    const slideWidth = 295;
+    let currentIndex = 0;
 
-     function updateArrows() {
-       const totalProducts = track.children.length;
-       const visibleItems = 4;
-       const maxIndex = Math.max(0, totalProducts - visibleItems);
+    function updateArrows() {
+        const total = track.children.length;
+        const maxIndex = total - 4;
 
-       leftArrow.style.opacity = (currentIndex <= 0) ? '0.4' : '1';
-       rightArrow.style.opacity = (currentIndex >= maxIndex) ? '0.4' : '1';
+        leftArrow.style.opacity = currentIndex <= 0 ? "0.4" : "1";
+        rightArrow.style.opacity = currentIndex >= maxIndex ? "0.4" : "1";
 
-       leftArrow.style.pointerEvents = (currentIndex <= 0) ? 'none' : 'auto';
-       rightArrow.style.pointerEvents = (currentIndex >= maxIndex) ? 'none' : 'auto';
-     }
+        leftArrow.style.pointerEvents = currentIndex <= 0 ? "none" : "auto";
+        rightArrow.style.pointerEvents = currentIndex >= maxIndex ? "none" : "auto";
+    }
 
-     function moveCarousel(direction) {
-       const totalProducts = track.children.length;
-       const visibleItems = 4;
-       const maxIndex = Math.max(0, totalProducts - visibleItems);
+    function moveCarousel(direction) {
+        const total = track.children.length;
+        const maxIndex = total - 4;
 
-       currentIndex += direction;
+        currentIndex += direction;
 
-       if (currentIndex < 0) currentIndex = 0;
-       if (currentIndex > maxIndex) currentIndex = maxIndex;
+        if (currentIndex < 0) currentIndex = 0;
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
 
-       track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-       updateArrows();
-     }
+        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        updateArrows();
+    }
 
-     leftArrow.addEventListener('click', () => moveCarousel(-1));
-     rightArrow.addEventListener('click', () => moveCarousel(1));
+    leftArrow.addEventListener("click", () => moveCarousel(-1));
+    rightArrow.addEventListener("click", () => moveCarousel(1));
 
-     // Initialize
-     setTimeout(() => {
-       updateArrows();
-     }, 100);
-   });
+    // Initial state
+    updateArrows();
+});
  </script>
 
 </body>
